@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="/css/normalize.min.css" />
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/create_and_edit.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h2>Edit Zoo</h2>
+      </div>
+      <form class="form" id="form">
+        <div class="form-control">
+          <label for="people-count">People count</label>
+          <input
+            id="people-count"
+            type="number"
+            placeholder="Enter amount of people..."
+          />
+          <i class="fa fa-check-circle"></i>
+          <i class="fa fa-exclamation-circle"></i>
+          <small>Error</small>
+        </div>
+
+        <div class="form-control">
+          <label for="zoo-name">Zoo name</label>
+          <input id="zoo-name" type="text" placeholder="Enter zoo name..." />
+          <i class="fa fa-check-circle"></i>
+          <i class="fa fa-exclamation-circle"></i>
+          <small>Error</small>
+        </div>
+
+        <div class="form-control">
+          <label for="animal-count">Animal count</label>
+          <input
+            id="animal-count"
+            type="number"
+            placeholder="Enter animal count..."
+          />
+          <i class="fa fa-check-circle"></i>
+          <i class="fa fa-exclamation-circle"></i>
+          <small>Error</small>
+        </div>
+
+        <button id="submit-button" type="submit">Submit</button>
+      </form>
+    </div>
+
+    <script src="/js/create_and_edit.js" type="module"></script>
+  </body>
+</html>
