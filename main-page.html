@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Third Lab</title>
+    <link rel="stylesheet" href="/css/normalize.min.css" />
+    <!-- <link rel="stylesheet" href="/css/reset_style.css" /> -->
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/section.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header__container">
+        <nav class="header__menu">
+          <div class="header__logo-text">My Zoo</div>
+          <ul>
+            <li class="header__nav-item">
+              <a href="/create-zoo.html" class="header__nav-link">My animals</a>
+            </li>
+            <li class="header__nav-item">
+              <a href="#" class="header__nav-link">Create Animal</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="header__search-part">
+          <input id="search-text" type="text" placeholder="Type something" />
+          <button id="header__search-button">Search</button>
+          <button id="header__clear-button">Clear</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="sidebar">
+        <div class="sidebar__title">Manage zoos</div>
+        <div class="sidebar__sort">
+          <div class="sidebar__sort__text">
+            Sort by amount of people per year
+          </div>
+          <button id="sidebar__sort__button">Sort</button>
+        </div>
+        <div class="sidebar__animal-count">
+          <div class="sidebar__animal-count__text">
+            Count total animal count
+          </div>
+          <button id="sidebar__animal-count__button">Count</button>
+          <div id="sidebar__animal-count__result">
+            Total expenses: <span id="result-test">0</span>
+          </div>
+        </div>
+      </div>
+      <div id="section__info-blocks"></div>
+    </section>
+    <script src="/js/main.js" type="module"></script>
+  </body>
+</html>

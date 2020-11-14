@@ -1,0 +1,25 @@
+.section {
+  display: flex;
+  height: 100%;
+}
+.sidebar {
+  flex-shrink: 0;
+}
+.sidebar__sort {
+  display: flex;
+}
+
+#section__info-blocks {
+  flex: 1 0 auto;
+  display: flex;
+  background-color: rebeccapurple;
+  align-content: start;
+  flex-wrap: wrap;
+}
+
+.block {
+  flex-basis: 180px;
+
+  background-color: red;
+  margin: 10px;
+}

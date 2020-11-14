@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "Avenir";
+  src: url("/fonts/Avenir-Roman.ttf");
+}
+
+* {
+  font-family: "Avenir", "sans-serif";
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 80%;
+}
+
+html,
+body {
+  font-family: 16px;
+  height: 100%;
+}
