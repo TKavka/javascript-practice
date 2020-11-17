@@ -1,82 +1,89 @@
-const infoBlocks = document.getElementById("section__info-blocks");
+import { getAllHotels, deleteHotels } from "./api.js";
+
+const sectionInfoBlocks = document.getElementById("section__info-blocks");
 const sortButton = document.getElementById("sidebar__sort__button");
-const countButton = document.getElementById("sidebar__animal-count__button");
-let countResult = document.getElementById("result-test");
+const visitorsPerYearButton = document.getElementById(
+  "sidebar__visitors-amount__button"
+);
+const body = document.querySelector("body");
+let visitorsPerYearResult = document.getElementById("result__text");
 const searchButton = document.getElementById("header__search-button");
 const searchText = document.getElementById("search-text");
 const clearButton = document.getElementById("header__clear-button");
 
-let zoos = [];
+let hotels = [];
 
-const itemTemplate = ({peopleCount, zooName, animalCount}) => 
-   `<div class="block">
-        <p>${peopleCount}</p>
-        <p>${zooName}</p>
-        <p>${animalCount}</p>
+const itemTemplate = ({ id, visitorsPerYear, hotelName, roomsCount }) =>
+  `<div id="${id}" class="block">
+        <p>${visitorsPerYear}</p>
+        <p>${hotelName}</p>
+        <p>${roomsCount}</p>
+        <button id="edit-button">
+            Edit
+        </button>
+        <button id="delete-button">
+            Delete
+        </button>
    </div>`;
 
+body.addEventListener("click", (event) => {
+  if (!event.target) {
+    return;
+  }
+  if (event.target.matches("#edit-button")) {
+    const parentId = event.target.parentElement.id;
+    const editElement = hotels.find((b) => b.id == parentId);
+    sessionStorage.setItem("editElement", JSON.stringify(editElement));
+    location.href = "/edit_hotel.html";
+  } else if (event.target.matches("#delete-button")) {
+    const deletedElementId = event.target.parentElement.id;
+    deleteHotels(deletedElementId).then(refetchAllHotels);
+  }
+});
 
-const getInputValues = () => {
-    return {
-        peopleCount: peopleCountInput.value,
-        zooName: zooNameInput.value,
-        animalCount: animalCountInput.value
-    }
-}
-
-const addItemToPage = ({peopleCount, zooName, animalCount}) => {
-    infoBlocks.insertAdjacentHTML(
-        'afterbegin', 
-        itemTemplate({peopleCount, zooName, animalCount})
-        );
-}
-
-const addItem = ({peopleCount, zooName, animalCount}) => {
-    const newItem = {
-        peopleCount, 
-        zooName,
-        animalCount
-    }
-
-    zoos.push(newItem);
-    addItemToPage(newItem);
-}
-
-
-countButton.addEventListener("click", () => {
-    let totalCount = 0;
-    zoos.forEach(e => totalCount += e.animalCount);
-    countResult.innerHTML = totalCount;
+visitorsPerYearButton.addEventListener("click", () => {
+  let totalCount = 0;
+  hotels.forEach((e) => (totalCount += parseInt(e.roomsCount)));
+  visitorsPerYearResult.innerHTML = totalCount;
 });
 
 searchButton.addEventListener("click", () => {
-    const foundZoos = zoos.filter(zoo => zoo.zooName === searchText.value)
-    renderItemList(foundZoos);
-    
+  const foundHotels = hotels.filter(
+    (hotel) => hotel.hotelName === searchText.value
+  );
+  renderItemList(foundHotels);
 });
 
 clearButton.addEventListener("click", () => {
-    renderItemList(zoos);
-    searchText.value = "";
-})
+  renderItemList(hotels);
+  searchText.value = "";
+});
 
 sortButton.addEventListener("click", () => {
-    const foundZoos = zoos.sort((a, b) => a.peopleCount > b.peopleCount ? 1 : -1);
-    renderItemList(foundZoos);
-})
+  const foundHotels = hotels.sort((a, b) =>
+    parseInt(a.visitorsPerYear) > parseInt(b.visitorsPerYear) ? 1 : -1
+  );
+  renderItemList(foundHotels);
+});
 
+const addItemToPage = ({ id, visitorsPerYear, hotelName, roomsCount }) => {
+  sectionInfoBlocks.insertAdjacentHTML(
+    "afterbegin",
+    itemTemplate({ id, visitorsPerYear, hotelName, roomsCount })
+  );
+};
 
 const renderItemList = (items) => {
-    infoBlocks.innerHTML = "";
-    for(const item of items) {
-        addItemToPage(item);
-    }
-}
+  sectionInfoBlocks.innerHTML = "";
+  for (const item of items) {
+    addItemToPage(item);
+  }
+};
 
+const refetchAllHotels = async () => {
+  const allHotels = await getAllHotels();
+  hotels = allHotels;
+  renderItemList(hotels);
+};
 
-addItem({peopleCount: 40, zooName: "LP", animalCount: 20});
-addItem({peopleCount: 25, zooName: "LPN", animalCount: 15});
-addItem({peopleCount: 90, zooName: "LPNU", animalCount: 90});
-
-
-renderItemList(zoos);
+refetchAllHotels();

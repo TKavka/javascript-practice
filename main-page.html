@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Third Lab</title>
+    <title>Hotel managment main page</title>
     <link rel="stylesheet" href="/css/normalize.min.css" />
     <!-- <link rel="stylesheet" href="/css/reset_style.css" /> -->
     <link rel="stylesheet" href="css/global.css" />
@@ -14,18 +14,18 @@
     <header class="header">
       <div class="container header__container">
         <nav class="header__menu">
-          <div class="header__logo-text">My Zoo</div>
+          <div class="header__logo-text">Hotel Managment</div>
           <ul>
             <li class="header__nav-item">
-              <a href="/edit_zoo.html" class="header__nav-link">Edit Zoo</a>
+              <a href="/main-page.html" class="header__nav-link">Hotels</a>
             </li>
             <li class="header__nav-item">
-              <a href="/create_zoo.html" class="header__nav-link">Create Zoo</a>
+              <a href="/add_hotel.html" class="header__nav-link">Add Hotel</a>
             </li>
           </ul>
         </nav>
         <div class="header__search-part">
-          <input id="search-text" type="text" placeholder="Type something" />
+          <input id="search-text" type="text" placeholder="Search by name..." />
           <button id="header__search-button">Search</button>
           <button id="header__clear-button">Clear</button>
         </div>
@@ -34,20 +34,18 @@
 
     <section class="section">
       <div class="sidebar">
-        <div class="sidebar__title">Manage zoos</div>
+        <div class="sidebar__title">Manage hotels</div>
         <div class="sidebar__sort">
-          <div class="sidebar__sort__text">
-            Sort by amount of people per year
-          </div>
+          <div class="sidebar__sort__text">Sort by count of rooms</div>
           <button id="sidebar__sort__button">Sort</button>
         </div>
-        <div class="sidebar__animal-count">
-          <div class="sidebar__animal-count__text">
-            Count total animal count
+        <div class="sidebar__visitors-amount">
+          <div class="sidebar__visitors-amount__text">
+            Count total amount of visitors per year
           </div>
-          <button id="sidebar__animal-count__button">Count</button>
-          <div id="sidebar__animal-count__result">
-            Total expenses: <span id="result-test">0</span>
+          <button id="sidebar__visitors-amount__button">Count</button>
+          <div id="sidebar__visitors-amount__result">
+            Total count: <span id="result__text">0</span>
           </div>
         </div>
       </div>
