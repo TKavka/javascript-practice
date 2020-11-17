@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Add Hotel</title>
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
@@ -15,15 +15,15 @@
   <body>
     <div class="container">
       <div class="header">
-        <h2>Create Zoo</h2>
+        <h2>Edit Hotel</h2>
       </div>
       <form class="form" id="form">
         <div class="form-control">
-          <label for="people-count">People count</label>
+          <label for="visitors-amount">Visitors amount</label>
           <input
-            id="people-count"
+            id="visitors-amount"
             type="number"
-            placeholder="Enter amount of people..."
+            placeholder="Enter amount of visitors..."
           />
           <i class="fa fa-check-circle"></i>
           <i class="fa fa-exclamation-circle"></i>
@@ -31,29 +31,34 @@
         </div>
 
         <div class="form-control">
-          <label for="zoo-name">Zoo name</label>
-          <input id="zoo-name" type="text" placeholder="Enter zoo name..." />
-          <i class="fa fa-check-circle"></i>
-          <i class="fa fa-exclamation-circle"></i>
-          <small>Error</small>
-        </div>
-
-        <div class="form-control">
-          <label for="animal-count">Animal count</label>
+          <label for="hotel-name">Hotel name</label>
           <input
-            id="animal-count"
-            type="number"
-            placeholder="Enter animal count..."
+            id="hotel-name"
+            type="text"
+            placeholder="Enter hotel name..."
           />
           <i class="fa fa-check-circle"></i>
           <i class="fa fa-exclamation-circle"></i>
           <small>Error</small>
         </div>
 
-        <button id="submit-button" type="submit">Submit</button>
+        <div class="form-control">
+          <label for="rooms-count">Rooms count</label>
+          <input
+            id="rooms-count"
+            type="number"
+            placeholder="Enter rooms count..."
+          />
+          <i class="fa fa-check-circle"></i>
+          <i class="fa fa-exclamation-circle"></i>
+          <small>Error</small>
+        </div>
+
+        <button id="edit-submit-button" type="submit">Submit</button>
       </form>
     </div>
 
-    <script src="/js/create_and_edit.js" type="module"></script>
+    <script src="/js/form_validation.js" type="module"></script>
+    <script src="/js/edit.js" type="module"></script>
   </body>
 </html>
